@@ -1,0 +1,13 @@
+.number-buttons{
+    font-size:65px; 
+    width:80px; 
+    background-color: #bfcadb;
+    border-radius:40px;
+    box-shadow: 2px 2px 10px #b6b7b8;
+  
+
+}
+
+.selected{
+    border: solid 3px blue;
+}
