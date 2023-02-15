@@ -1,0 +1,16 @@
+{
+	"name": "tasks",
+	"version": "1.0.0",
+	"main": "index.js",
+	"repository": "git@github.com:Sena543/tasks.git",
+	"author": "Senanu",
+	"license": "MIT",
+	"scripts": {
+		"start:client": "cd ./frontend && yarn start",
+		"start:server": "cd ./backend && yarn start",
+		"install:client": "cd ./frontend && yarn",
+		"install:server": "cd ./backend && yarn",
+		"install:all": "yarn && yarn run install:client && yarn run install:server",
+		"start": "concurrently \"yarn run start:client\" \"yarn run start:server\" "
+	}
+}
