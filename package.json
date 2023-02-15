@@ -12,5 +12,8 @@
 		"install:server": "cd ./backend && yarn",
 		"install:all": "yarn && yarn run install:client && yarn run install:server",
 		"start": "concurrently \"yarn run start:client\" \"yarn run start:server\" "
+	},
+	"dependencies": {
+		"concurrently": "^7.6.0"
 	}
 }
