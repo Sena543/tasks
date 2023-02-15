@@ -7,7 +7,7 @@
 	"license": "MIT",
 	"scripts": {
 		"start:client": "cd ./frontend && yarn start",
-		"start:server": "cd ./backend && yarn start",
+		"start:server": "cd ./backend && yarn run dev",
 		"install:client": "cd ./frontend && yarn",
 		"install:server": "cd ./backend && yarn",
 		"install:all": "yarn && yarn run install:client && yarn run install:server",
