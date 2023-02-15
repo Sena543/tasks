@@ -111,5 +111,5 @@ app.post("/add_department", async (req, res) => {
 });
 
 app.listen(3000, () => {
-	console.log(`Running on localhost:${3000}`);
+	console.log(`Running on localhost:${5173}`);
 });
