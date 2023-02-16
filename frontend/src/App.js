@@ -19,11 +19,12 @@ function App() {
 				userSelection: selectedNumbers,
 			},
 		});
+
 		if (response) {
 			setResponse(response.data);
 		}
 	};
-	console.log(response);
+
 	return (
 		<div className="App">
 			<RenderNumbers selectedNumbers={selectedNumbers} setSelectedNumbers={setSelectedNumbers} />

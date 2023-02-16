@@ -26,7 +26,6 @@ app.get("/", (req, res) => {
 });
 
 app.post("/checkdraw", (req, res) => {
-	// console.log(req.body)
 	const { userSelection } = req.body;
 	const machineDraw = [1, 2, 3, 4, 5];
 
@@ -38,22 +37,30 @@ app.post("/checkdraw", (req, res) => {
 	res.json({ message: "Winner winner chicken dinner" });
 });
 
-app.get("/get_employees", async (req, res) => {
-	try {
-		const getEmployees = await Employees.find().select("departmentID salary");
-		res.json({ getEmployees, count: getEmployees.length });
-	} catch (error) {
-		console.log(error);
-	}
-});
-
 app.get("/get_employees_department_data", async (req, res) => {
 	try {
 		const pipeline = [
-			{ $group: { _id: "$_id", department_count: "$department_count", departmentID: { $sum: 1 } } },
+			[
+				{
+					$group: {
+						_id: "$departmentID",
+						department_Count: {
+							$count: {},
+						},
+						salary_sum: {
+							$sum: "$salary",
+						},
+					},
+				},
+				{
+					$sort: {
+						documentID: 1,
+					},
+				},
+			],
 		];
-		const getEmployees = await Employees.aggregate(pipeline);
-		res.json({ getEmployees });
+		const getEmployeesDepartmentData = await Employees.aggregate(pipeline);
+		res.json(getEmployeesDepartmentData);
 	} catch (error) {
 		console.log(error);
 	}
@@ -110,6 +117,6 @@ app.post("/add_department", async (req, res) => {
 	}
 });
 
-app.listen(3000, () => {
+app.listen(5173, () => {
 	console.log(`Running on localhost:${5173}`);
 });
